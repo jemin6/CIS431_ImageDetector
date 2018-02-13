@@ -6,4 +6,6 @@
 
 ## Contact  
 For more information about this project, contact the following people: 
-* [mailto:Je Min Son] (mailto:jemin@uoregon.edu)
+* Je Min Son 
+* Jim 
+* Yanhua
