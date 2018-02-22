@@ -1,5 +1,8 @@
 /*
-	Opening video file 
+	Opening video file
+	
+	To compile
+	g++ -o read_video read_video.cpp `pkg-config --cflags --libs opencv` 
 */
 
 #include <iostream>
@@ -11,7 +14,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
 
 	// Input video file 
-	VideoCapture video1("test_video.mp4");
+	VideoCapture video1("Videos/test_video.mp4");
 
 	if(!video1.isOpened()) {
 		printf("Cannot open video file!\n");
