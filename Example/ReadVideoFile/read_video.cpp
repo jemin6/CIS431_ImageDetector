@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	// Face detection configuration
 	CascadeClassifier face;
 
-	face.load("opencv/data/haarcascades/haarcascade_frontalface_default.xml");
+	face.load("../../opencv/data/haarcascades/haarcascade_frontalface_default.xml");
 	
 	
 	Mat frame1; 
@@ -54,7 +54,9 @@ int main(int argc, char *argv[]) {
 		   try {
 			// convert captured frame to gray scale & equalize
 			Mat grayframe; 
+			// Change to gray level 
 			cvtColor(frame1, grayframe, CV_BGR2GRAY);
+
 			equalizeHist(grayframe, grayframe);
 
 			// face detection routine 
