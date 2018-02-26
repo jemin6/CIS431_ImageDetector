@@ -44,21 +44,24 @@ int main(int argc, char **argv)
             tracker = TrackerGOTURN::create();
     }
 #endif
+
     // Read video
-    VideoCapture video("test_video.mp4");
+    VideoCapture video("Videos/test_video.mp4");
     
     // Exit if video is not opened
-    if(!video.isOpened())
-    {
-        cout << "Could not read video file" << endl;
+    if(!video.isOpened()){
+        cerr << "Could not read video file" << endl;
         return 1;
-        
-    }
+    } // End if statement
     
     // Read first frame
     Mat frame;
     bool ok = video.read(frame);
-    
+  
+    // Rotate the frame  
+    transpose(frame, frame);
+    flip(frame, frame, 1);
+
     // Define initial boundibg box
     Rect2d bbox(287, 23, 86, 320);
     
@@ -99,15 +102,17 @@ int main(int argc, char **argv)
         // Display FPS on frame
         putText(frame, "FPS : " + SSTR(int(fps)), Point(100,50), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(50,170,50), 2);
         
-        // Display frame.
-        imshow("Tracking", frame);
+	transpose(frame, frame);
+        flip(frame, frame, 1);	
         
+	// Display frame.
+        imshow("Tracking", frame);
+       
+ 
         // Exit if ESC pressed.
-        int k = waitKey(1);
-        if(k == 27)
-        {
+        if(waitKey(20) == 27){
             break;
-        }
+        } // End if statement
         
     }
 }
