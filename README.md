@@ -1,7 +1,7 @@
 # Team-Image Detector 
 ## CIS431 Term Project 
 
-![image](Other_Files/Images/detect.png)
+![image](/Other_Files/Images/detect.png)
 
 ## Documentation  
 > [wiki pages](https://github.com/jemin6/CIS431_ImageDetector/wiki)
