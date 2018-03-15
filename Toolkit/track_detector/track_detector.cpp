@@ -1,9 +1,11 @@
 // g++ -o track_detector track_detector.cpp  `pkg-config --cflags --libs opencv`
+// ./track_detector
 
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/tracking.hpp>
 #include <opencv2/core/ocl.hpp>
+#include <stdlib.h>
 
 using namespace cv;
 using namespace std;
@@ -44,8 +46,23 @@ int main(int argc, char **argv)
             tracker = TrackerGOTURN::create();
     }
 #endif
+
     // Read video
-    VideoCapture video("test_video.mp4");
+    if (argc <= 1){
+        cout << "Usage: ./track_detector <file_name> <frame_number(default=0)>" << endl;
+        return -1;
+    }
+
+    long int frame_number = 0;
+    string file_name = argv[1];
+
+    if (argc == 3){
+        string frame_number_char = argv[2];
+        frame_number = stoi(frame_number_char, nullptr, 10);
+
+    }
+
+    VideoCapture video(file_name); 
     
     // Exit if video is not opened
     if(!video.isOpened())
@@ -54,6 +71,12 @@ int main(int argc, char **argv)
         return 1;
         
     }
+
+    video.set(CV_CAP_PROP_POS_FRAMES, frame_number);
+
+    // For frame name
+    int num = 0;
+    char name [50];
     
     // Read first frame
     Mat frame;
@@ -67,9 +90,12 @@ int main(int argc, char **argv)
     
     // Display bounding box.
     rectangle(frame, bbox, Scalar( 255, 0, 0 ), 2, 1 );
+
     imshow("Tracking", frame);
     
     tracker->init(frame, bbox);
+
+    video.set(CV_CAP_PROP_POS_MSEC, 0);
     
     while(video.read(frame))
     {
@@ -92,12 +118,6 @@ int main(int argc, char **argv)
             // Tracking failure detected.
             putText(frame, "Tracking failure detected", Point(100,80), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
         }
-        
-        // Display tracker type on frame
-        putText(frame, trackerType + " Tracker", Point(100,20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(50,170,50),2);
-        
-        // Display FPS on frame
-        putText(frame, "FPS : " + SSTR(int(fps)), Point(100,50), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(50,170,50), 2);
         
         // Display frame.
         imshow("Tracking", frame);
