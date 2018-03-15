@@ -19,8 +19,8 @@ The informations you can get from our product are the time (how long the object 
 
 ## Contact  
 For more information about this project, contact the following people: 
-* Je Min Son 
-* Jim 
-* Yanhua
+* [Je Min Son](mailto:jemin@uoregon.edu) 
+* [Jim Lee](mailto:jinjiel@uoregon.edu)
+* [Yanhua Luo](mailto:yanhual@uoregon.edu)
 
 Any issues on Github [here](https://github.com/jemin6/CIS431_Image_Detector/issues)
