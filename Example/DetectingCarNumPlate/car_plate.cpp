@@ -37,6 +37,37 @@ int main(int argc, char *argv[]) {
 
 	waitKey(10000);
 		
+	// Finding contours 
+	findContours(image2, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point());
+	vector<vector<Point> > contours_poly(contours.size());
+	vector<Rect> boundRect(contours.size());
+	vector<Rect> boundRect2(contours.size());
+
+	// Bind rectangle to every rectangle 
+	for(int i = 0; i < contours.size(); i++) {
+		approxPolyDP(Mat(contours[i]), contours_poly[i], 1, true);
+		boundRect[i] = boundingRect(Mat(contours_poly[i]));
+	}
+	
+	
+	for(int i = 0; i < contours.size(); i++) {
+		ratio = (double) boundRect[i].height / boundRect[i].width;
+		
+		if((ratio <= 2.5) && (ratio >= 0.5) && (boundRect[i].area() <= 700) && (boundRect[i].area() >= 100)) {
+			drawContours(drawing, contours, i, Scalar(0,255,255), 1, 8, hierarchy, 0, Point());
+			rectangle(drawing, boundRect[i].tl(), boundRect[i].br() ,Scalar(255, 0, 0), 1, 8, 0); 
+
+			refinery_count += 1; 
+			boundRect2[refinery_count] = boundRect[i];
+
+		}	
+
+	}
+
+	boundRect2.resize(refinery_count);
+	imshow("Original->Gray->Canny->Contours&Rectangles", drawing);
+
+	waitKey(10000);
 
 
 	return 0; 
