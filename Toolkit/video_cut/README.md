@@ -1,4 +1,4 @@
-# Video cutting tool
+# Video object detecting
 
 ## Description: 
 
