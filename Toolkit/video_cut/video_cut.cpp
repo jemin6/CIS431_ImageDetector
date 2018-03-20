@@ -59,7 +59,7 @@ int main(int argc, char* argv[]){
   auto t2 = Clock::now();
 
   double timer = chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000000000.0;
-  cout << ";  Runtime: "
+  cout << "Runtime: "
   << timer
     << " seconds" << std::endl;
 	
