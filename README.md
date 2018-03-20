@@ -8,6 +8,7 @@ Check out our [wiki page](https://github.com/jemin6/CIS431_ImageDetector/wiki) f
 
 ### Description 
 [Other_Files](https://github.com/jemin6/CIS431_Image_Detector/tree/master/Other_Files) - Directory containing image files, powerpoint files, and report word files
+
 [Toolkit](https://github.com/jemin6/CIS431_Image_Detector/tree/master/Toolkit) - Directory containing source files
  
 
