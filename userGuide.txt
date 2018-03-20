@@ -18,7 +18,7 @@ Training Classifier
 	6) open up CMD
 	7) type the following commands:
 
-	g++ -I/opt/X11/include -o image_t bb image_tbb.cpp -L/opt/X11/lib -lX11 -ljpeg -ltbb 		`pkg-config --cflags --libs opencv` -std=c++11
+	g++ -I/opt/X11/include -o image_t bb image_tbb.cpp -L/opt/X11/lib -lX11 -ljpeg -ltbb `pkg-config --cflags --libs opencv` -std=c++11
 
 	./image_tbb pos neg
 	(this would execute the file to do the image modification. The `pkg-config --cflags --libs opencv` should be the directory of where you download the OpenCV package. )
@@ -34,7 +34,7 @@ Training Classifier
 	
 	mkdir data
 	
-	opencv_traincascade -data data -vec training.vec -bg neg.txt -numPos #1 -numNeg #2			 -numStages #3 -w 45 -h 45 -featureType #4 -minHitRate 0.999 -maxFalseAlarmRate 0.5
+	opencv_traincascade -data data -vec training.vec -bg neg.txt -numPos #1 -numNeg #2 -numStages #3 -w 45 -h 45 -featureType #4 -minHitRate 0.999 -maxFalseAlarmRate 0.5
 
 	
 	replace the following arguments:
