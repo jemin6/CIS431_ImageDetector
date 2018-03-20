@@ -6,6 +6,10 @@
 ## Documentation  
 > [wiki pages](https://github.com/jemin6/CIS431_ImageDetector/wiki)
 
+* [Other_Files](https://github.com/jemin6/CIS431_Image_Detector/tree/master/Other_Files) - Directory containing image files, powerpoint files, and report word files
+* [Toolkit](https://github.com/jemin6/CIS431_Image_Detector/tree/master/Toolkit) - Directory containing source files
+ 
+
 ## History of group: 
 Founded in 2018, Team-Image is composed of several [contributors](https://github.com/jemin6/CIS431_Image_Detector/wiki/Contributors)
 
