@@ -2,23 +2,37 @@
 
 ## Description: 
 
-Split the video into frames.
+Detecting object in a video
 
 ## Usage:
 
 Compaile and run the following files on command line: (Make sure OpenCV and OpenMPI have been installed)
 
-for video_cut.cpp 
+for object_detector.cpp 
 
 ~~~
-   g++ -o video_cut video_cut.cpp  `pkg-config --cflags --libs opencv` -std=c++11
-   ./video_cut <file_name>
+   g++ object_detector.cpp -o object_detector `pkg-config --cflags --libs opencv` -std=c++11
+   ./object_detector <model_name> <video_name>
 ~~~
 
-for video_cut_4p.cpp
+for object_detector_no_play.cpp 
 
 ~~~
-    mpic++ -std=c++11 -o video_cut_4p video_cut_4p.cpp  `pkg-config --cflags --libs opencv` -std=c++11
-    mpirun --hostfile hostfile -np 4 video_cut_4p <file_name>
+   g++ object_detector_no_play.cpp -o object_detector_no_play `pkg-config --cflags --libs opencv` -std=c++11
+   ./object_detector_no_play <model_name> <video_name>
+~~~
+
+for object_detector_no_play_4p.cpp 
+
+~~~
+   mpic++ -std=c++11 -o object_detector_no_play_4p object_detector_no_play_4p.cpp  `pkg-config --cflags --libs opencv`
+   mpirun --hostfile hostfile -np 4 object_detector_no_play_4p <model_name> <video_name>
+~~~
+
+for object_detector_no_play_9p.cpp 
+
+~~~
+   mpic++ -std=c++11 -o object_detector_no_play_9p object_detector_no_play_9p.cpp  `pkg-config --cflags --libs opencv`
+   mpirun --hostfile hostfile -np 9 object_detector_no_play_9p <model_name> <video_name>
 ~~~
 
