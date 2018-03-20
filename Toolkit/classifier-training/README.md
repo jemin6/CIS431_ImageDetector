@@ -45,9 +45,9 @@ Training Classifier
 
 	
 	replace the following arguments:
-	#1: number of positive number for each stage, is number must be less than the number of positive image you have;
+	#1: number of positive number for each stage, this number must be less than the number of positive image you have;
 	#2: number of negative images;
 	#3: number of stage you want to train, for a simple object detection, it can go from 10 -20 stages;
-	#4: featureType: LBP or HAAR, LBP has faster training time, lower accuracy. HAAR has slower training time, higher accuracy;
+	#4: featureType: LBP or HAAR, LBP has faster training time, lower accuracy. HAAR has longer training time, higher accuracy;
 
 	8) You are done! After the training is finished, you should have your training classifier as a cascade.xml file. The training time may takes anywhere from minutes to days. 
