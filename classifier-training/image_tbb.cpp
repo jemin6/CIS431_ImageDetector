@@ -1,7 +1,7 @@
 //
 // image_tbb.cpp
 //
-// g++ -I/opt/X11/include -o image_t bb image_tbb.cpp -L/opt/X11/lib -lX11 -ljpeg -ltbb `pkg-config --cflags --libs opencv` -std=c++11
+// g++ -I/opt/X11/include -o image_tbb image_tbb.cpp -L/opt/X11/lib -lX11 -ljpeg -ltbb `pkg-config --cflags --libs opencv` -std=c++11
 //
 //  Created by Yanhua Luo on 3/12/18.
 
